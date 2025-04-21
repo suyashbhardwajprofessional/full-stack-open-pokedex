@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install dependencies 
-        run: npm install  
+      - name: Install dependencies
+        run: npm install
 
       - name: Check style
         run: npm run eslint
@@ -26,3 +26,11 @@ jobs:
 
       - name: test the application
         run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: JorgeLNJunior/render-deploy@v1.4.5
+        with:
+          service_id: ${{ secrets.RENDER_SERVICE_ID }}
+          api_key: ${{ secrets.RENDER_API_KEY }}
