@@ -10,6 +10,10 @@ on:
 
 # name and trigger not shown anymore...
 
+env:
+  # the below will be 'true'
+  CONDITION: ${{ contains(join(toJson(github.event.commits.*.message), ', '), '#skip') }}
+
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-24.04
@@ -42,8 +46,12 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+
+      - name: condition status
+        run: echo "$CONDITION"
+
       - name: Bump version and push tag
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && env.CONDITION == 'false'}}
         uses: anothrNick/github-tag-action@1.71.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
