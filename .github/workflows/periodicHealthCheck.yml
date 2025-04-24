@@ -11,7 +11,7 @@ on:
 # name and trigger not shown anymore...
 
 jobs:
-  schduled health check:
+  schduled_health_check:
     runs-on: ubuntu-24.04
     steps:
       - name: Check the deployed service URL
