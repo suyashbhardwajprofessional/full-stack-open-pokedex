@@ -7,7 +7,7 @@ CD setup tools							Kubernetes, Docker, Jenkins, Spinnacker
 -(automated deployment & orchestration)
 Infrastructure as Code					Terraform, CloudFormation, Ansible
 
-lint:
+lint:									eslint (wiith Java plugins)
 build: 									maven(Java) / Gradle(*) / Make(C/C++) / Jenkins / TravisCI
 test:									Jenkins / TravisCI
 VCS: 									git(speed & robust branching) / svn(strong binary files support) / Mercurial /Perforce
@@ -35,3 +35,12 @@ automated-testing						unit-tests + integration-tests + end-to-end tests
 ___________________
 Jenkins: highly customizable
 Travis CI: popular among open-source projects
+
+
+Java >>
+linting: eslint
+testing: Jenkins
+building Jenkins
+
+CIsetup: Travis CI, CircleCI, GitLab CI/CD	
+	
